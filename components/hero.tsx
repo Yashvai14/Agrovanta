@@ -2,8 +2,45 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageProvider";
 
 const Hero = () => {
+  const { language } = useLanguage();
+  const locale = language === "en" ? "en" : "hi";
+
+  const texts = {
+    en: {
+      badge: "Livestock Safety Platform",
+      titleLine1: "Monitor Antimicrobial Usage.",
+      titleHighlight: "Ensure MRL Compliance.",
+      titleLine2: "Protect Food Safety.",
+      description:
+        "A digital livestock monitoring platform that tracks antimicrobial usage, predicts residue risks, and prevents Maximum Residue Limit (MRL) violations in milk and meat production.",
+      primaryCta: "Get Started",
+      secondaryCta: "Learn More",
+      statAccuracy: "Accuracy Rate",
+      statFarms: "Farms Protected",
+      statMonitoring: "Real-time Monitoring",
+      complianceStatus: "Compliance Status",
+      active: "Active",
+    },
+    hi: {
+      badge: "पशुधन सुरक्षा प्लेटफ़ॉर्म",
+      titleLine1: "एंटीमाइक्रोबियल उपयोग की निगरानी करें।",
+      titleHighlight: "एमआरएल अनुपालन सुनिश्चित करें।",
+      titleLine2: "खाद्य सुरक्षा की रक्षा करें।",
+      description:
+        "एक डिजिटल प्लेटफ़ॉर्म जो पशुधन में एंटीमाइक्रोबियल उपयोग को ट्रैक करता है, अवशेष जोखिम की भविष्यवाणी करता है और दूध व मांस उत्पादन में अधिकतम अवशेष सीमा (MRL) के उल्लंघन को रोकने में मदद करता है।",
+      primaryCta: "शुरू करें",
+      secondaryCta: "और जानें",
+      statAccuracy: "सटीकता दर",
+      statFarms: "सुरक्षित फार्म",
+      statMonitoring: "24/7 रीयल‑टाइम मॉनिटरिंग",
+      complianceStatus: "अनुपालन स्थिति",
+      active: "सक्रिय",
+    },
+  }[locale];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center flex-col lg:flex-row gap-12 lg:gap-16 justify-between">
       {/* Left Content */}
@@ -22,22 +59,20 @@ const Hero = () => {
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-emerald-400 text-sm font-medium">
-            Livestock Safety Platform
+            {texts.badge}
           </span>
         </motion.div>
 
         <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
-          Monitor Antimicrobial Usage.{" "}
+          {texts.titleLine1}{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-600">
-            Ensure MRL Compliance.
+            {texts.titleHighlight}
           </span>{" "}
-          Protect Food Safety.
+          {texts.titleLine2}
         </h1>
 
         <p className="mt-6 text-lg text-white/60 leading-relaxed">
-          A digital livestock monitoring platform that tracks antimicrobial
-          usage, predicts residue risks, and prevents Maximum Residue Limit
-          (MRL) violations in milk and meat production.
+          {texts.description}
         </p>
 
         {/* Buttons */}
@@ -60,7 +95,7 @@ const Hero = () => {
                 d="M13 10V3L4 14h7v7l9-11h-7z"
               />
             </svg>
-            Get Started
+            {texts.primaryCta}
           </motion.button>
 
           <motion.button
@@ -87,7 +122,7 @@ const Hero = () => {
                 d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            Learn More
+            {texts.secondaryCta}
           </motion.button>
         </div>
 
@@ -99,9 +134,9 @@ const Hero = () => {
           className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10"
         >
           {[
-            { value: "99.9%", label: "Accuracy Rate" },
-            { value: "500+", label: "Farms Protected" },
-            { value: "24/7", label: "Real-time Monitoring" },
+            { value: "99.9%", label: texts.statAccuracy },
+            { value: "500+", label: texts.statFarms },
+            { value: "24/7", label: texts.statMonitoring },
           ].map((stat, index) => (
             <div key={index}>
               <div className="text-2xl font-bold text-emerald-400">
@@ -197,8 +232,10 @@ const Hero = () => {
               {/* Bottom status */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-white/60">Compliance Status</span>
-                  <span className="text-emerald-400 font-medium">Active</span>
+                <span className="text-white/60">{texts.complianceStatus}</span>
+                <span className="text-emerald-400 font-medium">
+                  {texts.active}
+                </span>
                 </div>
                 <div className="h-2 rounded-full bg-white/10 overflow-hidden">
                   <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-400" />

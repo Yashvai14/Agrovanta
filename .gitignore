@@ -1,8 +1,8 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# -----------------------------
+# Node / Frontend (Next.js)
+# -----------------------------
+node_modules/
+.pnp/
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,32 +10,89 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+# Next.js build
+.next/
+out/
+build/
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Testing
+coverage/
 
-# vercel
-.vercel
+# -----------------------------
+# Python / Backend (FastAPI)
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
 
-# typescript
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python build
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# -----------------------------
+# AI / ML related
+# -----------------------------
+models/
+checkpoints/
+*.h5
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.pickle
+*.pkl
+
+# -----------------------------
+# Environment variables
+# -----------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------
+# OS / System files
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# IDE / Editor
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -----------------------------
+# Deployment
+# -----------------------------
+.vercel/
+.netlify/
+
+# -----------------------------
+# TypeScript
+# -----------------------------
 *.tsbuildinfo
 next-env.d.ts

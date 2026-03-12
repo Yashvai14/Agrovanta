@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
   title: "Agrovanta",
@@ -21,8 +22,11 @@ export default function RootLayout({
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 right-0 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
         </div>
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10">
+          <LanguageProvider>{children}</LanguageProvider>
+        </div>
       </body>
     </html>
   );
 }
+

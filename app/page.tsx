@@ -1,11 +1,12 @@
 import React from 'react'
-import NavBar from '../components/navBar'
-import Hero from '../components/hero'
-import Info from '../components/info'
-import Steps from '../components/steps'
-import KeyFeatures from '@/components/KeyFeatures'
+import NavBar from "../components/navBar";
+import Hero from "../components/hero";
+import Info from "../components/info";
+import Steps from "../components/steps";
+import KeyFeatures from "@/components/KeyFeatures";
+import ResidueRiskForm from "@/components/ResidueRiskForm";
 
-const home = () => {
+const Home = () => {
   return (
     <div>
       <NavBar />
@@ -13,8 +14,9 @@ const home = () => {
       <Info />
       <Steps />
       <KeyFeatures />
+      <ResidueRiskForm />
     </div>
-  )
-}
+  );
+};
 
-export default home
+export default Home;
